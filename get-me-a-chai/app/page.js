@@ -1,101 +1,98 @@
-import Image from "next/image";
+
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <div>
+        <div className="flex flex-col gap-4 justify-center items-center text-white h-[44vh]">
+          <div className="font-bold text-5xl flex gap-2 justify-center items-center">
+            Buy Me A Chai{" "}
+            <span>
+              <img
+                src="https://media2.giphy.com/media/9h4w5cyUsl7jwgwjTh/giphy.gif?cid=6c09b952syux7mv6nxaiozx7y5hrgmtfvba60djgpc8cthey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                width={44}
+                height={44}
+                alt="Chai GIF"
+              />
+            </span>
+          </div>
+          <p>
+            A crowdfunding platform for creators. Get funded by your fans and
+            followers. Start now.
+          </p>
+          <div>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              Start Here
+            </button>
+            <button
+              type="button"
+              className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            >
+              Read More
+            </button>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="bg-white h-1 opacity-20"></div>
+
+        <div className="text-white container mx-auto py-32">
+          <h2 className="text-2xl font-bold text-center my-12">
+            Your Fans Buy You a Chai
+          </h2>
+          <div className="flex gap-5 justify-around">
+            <div className="item space-y-3 flex flex-col items-center justify-center">
+              <img
+                className="rounded-full bg-slate-400 p-2"
+                width={88}
+                height={88}
+                src="https://media3.giphy.com/media/Pq2vkvaLURkntuqwsm/200w.gif?cid=6c09b9523bq1drmgs7hqov1bycnqjj1b8t6ixl9r999jd7s4&ep=v1_gifs_search&rid=200w.gif&ct=g"
+                alt="Fund Yourself"
+              />
+              <p className="font-bold">Fund Yourself</p>
+              <p className="text-center">
+                Your fans are available to help you.
+              </p>
+            </div>
+            <div className="item space-y-3 flex flex-col items-center justify-center">
+              <img
+                className="rounded-full bg-slate-400 p-2"
+                width={88}
+                height={88}
+                src="https://media4.giphy.com/media/OccMlQrNO0YU4zFchY/giphy.gif?cid=6c09b9524xdw7mwtngnuedcn6zwd3xrruqsqq3lrohstf2xc&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+                alt="Support GIF"
+              />
+              <p className="font-bold">Fund Yourself</p>
+              <p className="text-center">
+                Your fans are available to help you.
+              </p>
+            </div>
+            <div className="item space-y-3 flex flex-col items-center justify-center">
+              <img
+                className="rounded-full bg-slate-400 p-2"
+                width={88}
+                height={88}
+                src='https://media2.giphy.com/media/6Mh8DXPL27UpNYp8o4/giphy.gif?cid=6c09b952c3n4u3jxyyiqlsvqs81vnk2qk92co9meqadax7al&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g'
+                alt="Your Fans Want To Help"
+              />
+              <p className="font-bold">Your Fans Want To Help</p>
+              <p className="text-center">
+                Your fans are available to help you.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-white h-1 opacity-20"></div>
+
+        <div className="text-white container mx-auto py-32 flex flex-col items-center justify-center">
+          <h2 className="text-3xl font-bold text-center my-12">
+            Learn More About Us
+          </h2>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/wbj-DuaL748?si=w7qBOCy6u0lmBKmv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+      </div>
+    </>
   );
 }
