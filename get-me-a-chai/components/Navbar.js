@@ -7,6 +7,12 @@ const Navbar = () => {
   const { data: session } = useSession();
   const [showdropdown, setShowdropdown] = useState(false);
 
+  if (session) {
+    
+    console.log(session.user.name,"this is session user name");
+  }
+  
+
   return (
     <nav className="bg-gray-900 text-white flex justify-between px-4 h-16 items-center">
       <Link
@@ -14,6 +20,7 @@ const Navbar = () => {
         href="/"
       >
         <img
+          className="invertImg"
           src="https://media2.giphy.com/media/9h4w5cyUsl7jwgwjTh/giphy.gif?cid=6c09b952syux7mv6nxaiozx7y5hrgmtfvba60djgpc8cthey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
           width={44}
           alt=""
@@ -81,7 +88,7 @@ const Navbar = () => {
 
                 <li>
                   <Link
-                    href="#"
+                   href={`/${encodeURIComponent(session.user.name)}`}
                     className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     Your Page

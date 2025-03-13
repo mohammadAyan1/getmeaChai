@@ -9,6 +9,7 @@ export default function Home() {
             Buy Me A Chai{" "}
             <span>
               <img
+                className="invertImg"
                 src="https://media2.giphy.com/media/9h4w5cyUsl7jwgwjTh/giphy.gif?cid=6c09b952syux7mv6nxaiozx7y5hrgmtfvba60djgpc8cthey&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
                 width={44}
                 height={44}
@@ -90,7 +91,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center my-12">
             Learn More About Us
           </h2>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/wbj-DuaL748?si=w7qBOCy6u0lmBKmv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/wbj-DuaL748?si=w7qBOCy6u0lmBKmv" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
         </div>
       </div>
     </>
