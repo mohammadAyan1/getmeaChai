@@ -18,8 +18,12 @@ export const POST = async (req, res) => {
         return NextResponse.json({success:false, message:"Payment not found"});
     }
 
+    // fetch the secret key of the user who is getting the payment
+    let user = await User.findOne({username:p.to_user});
+    const secret = user.razorpaysecret;
+
     // verify the payment
-    let verified = validatePaymentVerification({"order_id": body.razorpay_order_id,"payment_id": body.razorpay_payment_id}, body.razorpay_signature, process.env.KEY_SECRET);
+    let verified = validatePaymentVerification({"order_id": body.razorpay_order_id,"payment_id": body.razorpay_payment_id}, body.razorpay_signature, secret);
 
     if(verified){
         // update the payment status

@@ -5,11 +5,16 @@ import Payment from "@/models/Payment";
 import connectDB from "@/db/dbConnect";
 import User from "@/models/User";
 
+
 export const initiate = async (amount, to_username, paymentform) => {
   await connectDB();
+  // fetch the secret key of the user who is getting the payment
+  let user = await User.findOne({ username: to_username });
+  const secret = user.razorpaysecret;
+
   var instance = new Razorpay({
-    key_id: process.env.NEXT_PUBLIC_KEY_ID,
-    key_secret: process.env.KEY_SECRET,
+    key_id: user.razorpayid,
+    key_secret: secret,
   });
 
   let option = {
@@ -23,7 +28,7 @@ export const initiate = async (amount, to_username, paymentform) => {
   // create a payment object which shows a pendind payment in the database
   await Payment.create({
     oid: x.id,
-    amount: amount,
+    amount: amount / 100,
     to_user: to_username,
     name: paymentform.name,
     message: paymentform.message,
@@ -41,6 +46,32 @@ export const fetchuser = async (username) => {
 export const fetchpayment = async (username) => {
   await connectDB();
   // find all payments sorted by decending order of amount and flatten the object id
-  let p = await Payment.find({ to_user: username }).sort({ amount: -1 }).lean();
+  let p = await Payment.find({ to_user: username, done: true })
+    .sort({ amount: -1 })
+    .lean();
   return p;
-}
+};
+
+export const updateProfile = async (data, oldusername) => {
+  await connectDB();
+  let ndata = Object.fromEntries(data);
+  console.log(ndata, "this is ndata");
+  console.log(oldusername, "this is oldusername");
+  
+  // if the username is being updated, check if the  username is available
+  if (oldusername !== ndata.username) {
+    let u = await User.findOne({ username: ndata.username });
+    console.log(u, "this is u");
+    
+    if (u) {
+      return { error: "Username already exists" };
+    }
+    await User.updateOne({email:ndata.email},ndata)
+    // now update all the username in tthe payments table
+    await Payment.updateMany({to_user:oldusername},{to_user:ndata.username})
+  }
+  else{
+    await User.updateOne({ email: ndata.email }, ndata);
+  }
+  // await User.update({ username: oldusername }, { username: ndata.username });
+};
