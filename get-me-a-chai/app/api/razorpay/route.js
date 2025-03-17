@@ -9,7 +9,7 @@ export const POST = async (req, res) => {
     await connectDB();
     let body = await req.formData();
     body = Object.fromEntries(body);
-    console.log(body);
+    
     
 
     // check if razopayOrderId is present in the server

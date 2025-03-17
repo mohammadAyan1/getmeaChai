@@ -27,15 +27,14 @@ const Dashboard = () => {
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-    console.log(form);
+    
   };
 
   const handleSubmit = async (e) => {
-    console.log(e);
-    console.log(session.user.name,"this is session user name");
+    
     
     let a = await updateProfile(e, session.user.name);
-    console.log(a, "this is a");
+    
     
     toast("Profile is updated", {
       position: "top-right",
@@ -66,7 +65,7 @@ const Dashboard = () => {
         transition={Bounce}
       />
 
-      <div className="container mx-auto py-5">
+      <div className="container mx-auto py-5 px-6">
         <h1 className="text-center my-5 text-3xl font-bold">
           Welcome to Your Dashboard
         </h1>

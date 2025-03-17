@@ -38,7 +38,7 @@ export const authOptions = NextAuth({
 
     async session({ session, user, token }) {
       const dbUser = await User.findOne({ email: session.user.email });
-      console.log(dbUser, "session");
+      
       session.user.name = dbUser.username;
       return session;
     },

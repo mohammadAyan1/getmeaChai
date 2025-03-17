@@ -19,13 +19,13 @@ const PaymentPage = ({ username }) => {
   const router = useRouter();
 
   const searchParams = useSearchParams();
-  console.log(username, "this is username from payment page");
+  
 
   const handleChange = (e) => {
     setPaymentform({ ...paymentform, [e.target.name]: e.target.value });
-    console.log(paymentform);
+    
   };
-  console.log(currentuser.razorpayid, "this is razorpay id");
+  
 
   useEffect(() => {
     getData();
@@ -48,14 +48,14 @@ const PaymentPage = ({ username }) => {
   router.push(`/${username}`);
   }, []);
 
-  console.log(username, "this is user name");
+  
 
   const getData = async () => {
     let u = await fetchuser(username);
     setcurrentuser(u);
     let dbpayment = await fetchpayment(username);
     setPayment(dbpayment);
-    console.log(u, dbpayment);
+    
   };
 
   const pay = async (amount) => {

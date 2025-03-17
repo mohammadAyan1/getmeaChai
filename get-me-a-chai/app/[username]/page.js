@@ -16,7 +16,7 @@ const Username = async ({ params }) => {
 
   await checkUser();
   const { username } = params;
-  console.log(username, "this is username");
+ 
 
   return (
     <>

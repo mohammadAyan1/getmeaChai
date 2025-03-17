@@ -6,15 +6,10 @@ import Link from "next/link";
 const Navbar = () => {
   const { data: session } = useSession();
   const [showdropdown, setShowdropdown] = useState(false);
-
-  if (session) {
-    
-    console.log(session.user.name,"this is session user name");
-  }
   
 
   return (
-    <nav className="bg-gray-900 text-white flex justify-between px-4 h-16 items-center">
+    <nav className="bg-gray-900 text-white flex justify-between px-4 h-16 items-center md:h-16 flex-col md:flex-row">
       <Link
         className="logo font-bold text-lg flex justify-center items-center"
         href="/"
@@ -25,7 +20,7 @@ const Navbar = () => {
           width={44}
           alt=""
         />
-        <span>GetMeChai</span>
+        <span className="text-xl md:text-base my-3 md:my-0">GetMeChai</span>
       </Link>
       {/* <ul className='flex justify-between gap-4'>
             <li>About</li>
@@ -33,7 +28,7 @@ const Navbar = () => {
             <li>Sign UP</li>
             <li>Login</li>
         </ul> */}
-      <div className="relative">
+      <div className="relative flex flex-col md:block gap-4">
         {session && (
           <>
             <button

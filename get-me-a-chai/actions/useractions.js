@@ -23,7 +23,7 @@ export const initiate = async (amount, to_username, paymentform) => {
   };
 
   let x = await instance.orders.create(option);
-  console.log(x, "xfffffffffffffffffffffffff");
+  
 
   // create a payment object which shows a pendind payment in the database
   await Payment.create({
@@ -55,13 +55,12 @@ export const fetchpayment = async (username) => {
 export const updateProfile = async (data, oldusername) => {
   await connectDB();
   let ndata = Object.fromEntries(data);
-  console.log(ndata, "this is ndata");
-  console.log(oldusername, "this is oldusername");
+
   
   // if the username is being updated, check if the  username is available
   if (oldusername !== ndata.username) {
     let u = await User.findOne({ username: ndata.username });
-    console.log(u, "this is u");
+  
     
     if (u) {
       return { error: "Username already exists" };
